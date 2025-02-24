@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-app
-          image: YOUR_DOCKER_IMAGE
+          image: muttalipsahin/test-minikube
           ports:
             - containerPort: 8080
 ---

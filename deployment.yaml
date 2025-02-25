@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-hello-world
-        image: muttalipsahin/spring-boot-hello-world:latest  # Updated to use Docker Hub
+        image: muttalipsahin/spring-boot-hello-world:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080

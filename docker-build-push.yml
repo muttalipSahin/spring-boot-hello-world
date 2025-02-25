@@ -1,0 +1,29 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main  # Change this if you want to trigger on another branch
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t muttalipsahin/spring-boot-hello-world:latest .
+
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push muttalipsahin/spring-boot-hello-world:latest

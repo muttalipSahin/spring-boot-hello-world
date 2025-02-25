@@ -6,7 +6,8 @@ spec:
   selector:
     app: spring-boot-hello-world
   ports:
-    - protocol: TCP
+    - name: http  # <-- Required name field
+      protocol: TCP
       port: 80
       targetPort: 8080
       nodePort: 30080  # Fixed NodePort
